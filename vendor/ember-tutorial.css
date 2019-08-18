@@ -40,6 +40,11 @@ body {
   background: #f3f3f3;
 }
 
+img:hover {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
 a {
   color: #016aba;
   text-decoration: none;

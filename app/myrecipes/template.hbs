@@ -1,4 +1,5 @@
-{{#if loading}}
+{{#if loading  }}
+<h2>You have no entries! :(</h2>
 {{ load-screen }}
 
 {{else}}
@@ -9,7 +10,8 @@
     <button disabled={{ isDisabled }} type="submit" {{ action 'testing' }}>Delete!</button>
   </div>
 
-  {{#each model as |recipe| }}
+  {{#each recipe as |recipe| }}
+  {{!-- {{ delete-btn name="Delete" actionOnPress = (action 'sendActions' index) }} --}}
   {{ item-info 
     name=recipe.name 
     type=recipe.type 

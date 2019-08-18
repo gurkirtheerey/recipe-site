@@ -7,6 +7,6 @@ export default Component.extend({
       if(this.get('actionOnPress')) {
         this.get('actionOnPress')();
       }
-    }
+    },
   }
 });

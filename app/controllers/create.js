@@ -19,6 +19,7 @@ export default Controller.extend({
       if (isNaN(calories) || name == null || type == null || meal == null || ingredients == null ) {
         alert(`Please enter the correct values to create your dish!`);
         this.set('successful', false);
+        this.set('loading', false);
       } else {
         ingredientArr.push(ingredients.split(' '));
 

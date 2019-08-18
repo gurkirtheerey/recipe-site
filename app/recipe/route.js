@@ -3,8 +3,8 @@ import Route from '@ember/routing/route';
 export default Route.extend({
  
   model() {
- 
-    return [
+
+    const data = [
       {
        name: 'Massaman curry',
        calories: 690,
@@ -81,5 +81,7 @@ export default Route.extend({
       meal: 'Dinner'
     }
     ];
+    return data;
   },
+
 });
