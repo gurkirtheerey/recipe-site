@@ -1,0 +1,28 @@
+{{#if loading}}
+{{ load-screen }}
+{{else}}
+<div class="container text-class">
+  <h4><strong>Create a Dish!</strong></h4>
+  <p>Enter your own dish to show others about it!</p>
+
+  {{ input class="input-entries" type="text" placeholder="Enter Food..." value=recipeName }}
+  {{ input class="input-entries" type="text" placeholder="Enter # Calories..." value=recipeCalories }}
+  {{ input class="input-entries" type="text" placeholder="Enter Cuisine..." value=recipeType }}
+  {{ textarea class="input-entries" type="text" placeholder="Enter Main Ingredients..." value=recipeIngredients }}
+  {{ input class="input-entries" type="text" placeholder="Enter Meal.." value=recipeMeal }}
+  <button class="button" {{ action 'submitRecipe'}}>Submit Dish!</button>
+
+  {{item-info 
+    name= recipeName 
+    calories= recipeCalories 
+    type= recipeType 
+    meal=recipeMeal 
+    ingredients=recipeIngredients 
+  }}
+  {{#if successful}}
+  <p class="alert alert-success"> {{ responseMessage }} </p>
+  {{else}}
+  <p class="alert alert-danger">Please enter correct values above!</p>
+  {{/if}}
+</div>
+{{/if}}

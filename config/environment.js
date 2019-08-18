@@ -20,7 +20,27 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    firebase: {
+      apiKey: "AIzaSyAD_J4YjC5U_hWuvC1mU-tUsyFYtL0OV6k",
+      authDomain: "recipe-me-31d61.firebaseapp.com",
+      databaseURL: "https://recipe-me-31d61.firebaseio.com",
+      projectId: "recipe-me-31d61",
+      storageBucket: "",
+      messagingSenderId: "1023212725858",
+      appId: "1:1023212725858:web:6b932ac81de394a9"
+    },
+  
+  
+    // if using ember-cli-content-security-policy
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
+
   };
 
   if (environment === 'development') {

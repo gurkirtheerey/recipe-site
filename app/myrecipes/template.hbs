@@ -1,0 +1,22 @@
+{{#if loading}}
+{{ load-screen }}
+
+{{else}}
+<div class="container text-class">
+  <h3>Your Recipes!</h3>
+  <div class="delete-button">
+    {{ input class="input-delete" type="text" value=destroyName placeholder="Enter Recipe Name To Delete!" }}
+    <button disabled={{ isDisabled }} type="submit" {{ action 'testing' }}>Delete!</button>
+  </div>
+
+  {{#each model as |recipe| }}
+  {{ item-info 
+    name=recipe.name 
+    type=recipe.type 
+    calories=recipe.calories 
+    ingredients=recipe.ingredients
+    meal=recipe.meal 
+  }}
+  {{/each}}
+</div>
+{{/if}}

@@ -1,0 +1,33 @@
+<div class="container text-class">
+  <h2>Welcome</h2>
+  <p style="font-size: 20px">At FindThatRecipe.com, you will be able to view (the statistically) favorited 10 dishes'
+    content information!</p>
+  <p style="font-size: 20px">This will allow you to quickly decide what you want to make, and give you the list of
+    ingredients! :) </p>
+
+  {{ img-src 
+    link="assets/images/pizza.jpeg"  
+    name="Pizza"
+    buttonName="Pizza"
+    description="My personal favorite hehe"
+  }}
+
+  {{ img-src 
+    link="assets/images/massan-curry.jpg"  
+    name="Massanman Curry"
+    buttonName="MassanMan Curry"
+    description="The most sought after food in the world!"
+  }}
+
+  {{ img-src 
+    link="assets/images/chocolate.jpeg"  
+    name="Chocolate"
+    description="Everybody's favorite candy!"
+  }}
+
+  <p>These are just 3 of the top 10 food options in the world, click the button below to find more!</p>
+
+</div>
+<button class=" button bottom-button" {{ action 'transitions' }}>Check out the dishes!</button>
+
+{{ outlet }}

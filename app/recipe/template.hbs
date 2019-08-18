@@ -1,0 +1,42 @@
+{{#if isExpanded }}
+<div class="container text-class">
+  <h2>Recipe Database</h2>
+  <p>These are the top 10 dishes worldwide!</p>
+  <ol>
+    {{#each model as |recipe| }}
+    <p class="text-class"> {{ recipe.name }} </p>
+    {{/each}}
+  </ol>
+  {{ route-btn name='Expand to see recipe info!' actionOnPress = (action 'expandInfo') }}
+
+</div>
+
+{{else}}
+<div class="container text-class" style="font-size: 15px;">
+  <h2>Recipe Database</h2>
+  <div class="container">
+    <ol style="text-align: center; margin-top: 5px;">
+      {{#each model as |recipe| }}
+      <li style="margin-top: 30px;">
+        {{ item-info
+          id=recipe.id
+          name=recipe.name 
+          calories=recipe.calories
+          type=recipe.type
+          ingredients=recipe.ingredients
+          meal=recipe.meal
+        }}
+      </li>
+      {{ route-btn name="Don't Like This Recipe?" actionOnPress = (action 'deleteThisRecord') }}
+      {{/each}}
+    </ol>
+
+    <button class="button" style="margin-top: 50px; margin-bottom: 50px;" {{ action 'transitions' }}>Create
+      Your Own!
+    </button>
+
+  </div>
+
+</div>
+
+{{/if}}

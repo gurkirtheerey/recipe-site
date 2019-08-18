@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        {{#link-to 'index' class="nav-link text-class"}}Home{{/link-to}}
+      </li>
+      <li class="nav-item">
+        {{#link-to 'recipe' action='onPress' class="nav-link text-class"}}View Recipes{{/link-to}}
+      </li>
+      <li>
+        {{#link-to 'create' class="nav-link text-class"}}Create A Dish{{/link-to}}
+      </li>
+      <li>
+        {{#link-to 'myrecipes' class="nav-link text-class"}} <img src="/assets/images/heart.png" height="25px"
+          width="24px;"> Recipes{{/link-to}}
+      </li>
+      <li>
+        {{#link-to 'contact' class="nav-link text-class"}}Contact{{/link-to}}
+      </li>
+    </ul>
+  </div>
+</nav>
