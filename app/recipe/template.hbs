@@ -14,6 +14,32 @@
 {{else}}
 <div class="container text-class" style="font-size: 15px;">
   <h2>Our Recipe Database!</h2>
+  {{ input type="text" value=inputFilterValue key-up= (action 'filterByMeal') placeholder="Filter By Meal Here..." }}
+
+  {{#if didFilter}}
+  <div class="container">
+    <h2>Filtered List:</h2>
+    <ol style="text-align: center; margin-top: 5px;">
+      {{#each filteredRecipes as |recipe index| }}
+      <li style="margin-top: 30px; background-color: #212121 ">
+        {{ img-src link ="assets/images/heart.png" alt="test" name="wow" }}
+        {{ item-info
+          id=recipe.id
+          name=recipe.name 
+          calories=recipe.calories
+          type=recipe.type
+          ingredients=recipe.ingredients
+          meal=recipe.meal
+        }}
+      </li>
+      <img src="/assets/images/heart.png" {{ action 'sendActions' index }} style="margin-top: 15px" height="35px"
+        width="30px">
+
+      {{/each}}
+    </ol>
+  </div>
+
+  {{else}}
   <div class="container">
     <ol style="text-align: center; margin-top: 5px;">
       {{#each model as |recipe index| }}
@@ -33,13 +59,8 @@
       {{!-- {{ route-btn name="Add To Your List!"   actionOnPress = (action 'sendActions' index) }} --}}
       {{/each}}
     </ol>
-
-    <button class="button" style="margin-top: 50px; margin-bottom: 50px;" {{ action 'transitions' }}>Create
-      Your Own!
-    </button>
-
   </div>
-
+  {{/if}}
 </div>
 
 {{/if}}

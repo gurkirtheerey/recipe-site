@@ -6,7 +6,6 @@ export default Controller.extend({
   successful: false,
   loading: false,
 
-  // testing
   actions: {
     submitRecipe() {
       this.set('loading', true);

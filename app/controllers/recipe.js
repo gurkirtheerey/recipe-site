@@ -1,9 +1,21 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
 
   isExpanded: true,
+  didFilter: false,
+  inputFilterValue: '',
+  filteredRecipes: computed('inputFilterValue', function() {
+    const filteredRecipe = this.get('inputFilterValue');
+    const model = this.get('model');
+
+    const filtered = model.filterBy('meal', filteredRecipe);
  
+    return filtered;
+
+  }),
+
   actions: {
     expandInfo() {
        this.toggleProperty('isExpanded');
@@ -22,7 +34,19 @@ export default Controller.extend({
         ingredients: model[index].ingredients,
        });
        entry.save();
+      },
+
+      filterByMeal() {
+        const inputFilterValue = this.get('inputFilterValue').toUpperCase();
+        const model = this.get('model');
+        this.set('didFilter', true);
+        if (inputFilterValue != '') {
+          const entry = model.filterBy('meal', inputFilterValue);
+          return entry;
+        } else {
+          this.set('didFilter', false);
       }
+    }
   },
 
 });
